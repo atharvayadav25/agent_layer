@@ -1,0 +1,34 @@
+{
+  "layer1_rule_based": {
+    "TP": 105,
+    "FP": 0,
+    "FN": 31,
+    "TN": 95,
+    "precision": 1.0,
+    "recall": 0.7721,
+    "f1": 0.8714,
+    "coverage": 0.4545
+  },
+  "layer2_isolation_forest": {
+    "precision": 0.9135,
+    "recall": 0.6985,
+    "f1": 0.7917,
+    "TP": 95,
+    "FP": 9,
+    "FN": 41,
+    "TN": 86
+  },
+  "layer3_decision_tree": {
+    "precision": 0.9444,
+    "recall": 1.0,
+    "f1": 0.9714,
+    "auc": 0.9773,
+    "cv_f1_mean": 0.9183,
+    "cv_f1_std": 0.0449
+  },
+  "risk_weights": {
+    "rule_based": 0.4,
+    "isolation_forest": 0.2,
+    "decision_tree": 0.4
+  }
+}
