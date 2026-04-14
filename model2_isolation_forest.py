@@ -1,31 +1,4 @@
-"""
-model2_isolation_forest.py
-==========================
-Layer 2 of the Synergy hybrid pipeline: Anomaly Detection via Isolation Forest.
 
-Learns what "normal" prompts look like and flags statistical outliers as
-potentially adversarial — catches novel attacks that don't match known rule
-patterns (zero-day prompt injections, obfuscated exploits, etc.).
-
-Input features: 21 structural/lexical features + 500 TF-IDF n-grams (1-3),
-                PLUS rule_score/rule_triggered/rule_flag_count from Layer 1.
-
-Standalone usage:
-    python model2_isolation_forest.py
-
-Used by orchestrator:
-    from model2_isolation_forest import IsolationForestDetector
-    ifd    = IsolationForestDetector()
-    bundle = ifd.train(df)           # returns {'tfidf', 'iso_forest', ...}
-    result = ifd.predict(text, bundle)
-
-Output contract (dict):
-    {
-        "anomaly_score_raw":  float,   # raw IF decision function value
-        "anomaly_score_norm": float,   # normalised [0, 1] (higher = more anomalous)
-        "anomaly_flag":       bool,    # True if IF predicts -1 (outlier)
-    }
-"""
 
 import sys
 import json

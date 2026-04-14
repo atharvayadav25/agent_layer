@@ -1,31 +1,4 @@
-"""
-model3_decision_tree.py
-=======================
-Layer 3 of the Synergy hybrid pipeline: Decision Tree Classifier.
 
-Takes the feature-rich representation built by Layer 2 (structural +
-TF-IDF + Isolation Forest anomaly signals) and learns explicit decision
-boundaries to classify inputs as benign (0) or malicious (1).
-
-The Decision Tree is trained on outputs from both Layer 1 and Layer 2,
-making it a true meta-classifier that fuses all upstream signals.
-
-Standalone usage:
-    python model3_decision_tree.py
-
-Used by orchestrator:
-    from model3_decision_tree import DecisionTreeClassifierModel
-    dtm    = DecisionTreeClassifierModel()
-    bundle = dtm.train(df, iso_bundle)    # iso_bundle from Layer 2
-    result = dtm.predict(text, iso_bundle, dt_bundle)
-
-Output contract (dict):
-    {
-        "malicious_probability": float,   # P(malicious) [0, 1]
-        "predicted_label":       int,     # 0=benign, 1=malicious
-        "confidence":            float,   # max(P_benign, P_malicious)
-    }
-"""
 
 import sys
 import json

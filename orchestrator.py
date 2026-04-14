@@ -1,30 +1,4 @@
-"""
-orchestrator.py
-===============
-Synergy Runtime Integrity Pipeline — Master Orchestrator
 
-Wires all three model layers together into a single end-to-end pipeline:
-
-    INPUT
-      ↓
-    [Layer 1]  RuleBasedDetector          (model1_rule_based.py)
-      ↓
-    [Layer 2]  IsolationForestDetector    (model2_isolation_forest.py)
-      ↓
-    [Layer 3]  DecisionTreeClassifierModel (model3_decision_tree.py)
-      ↓
-    Risk Score  (weighted combination → 0–100 with level label)
-
-Usage — train and evaluate the full pipeline:
-    python orchestrator.py
-
-Usage — load pre-trained and run inference:
-    from orchestrator import SynergyPipeline
-    pipeline = SynergyPipeline()
-    pipeline.load()
-    result = pipeline.predict("Ignore all previous instructions...")
-    print(result)
-"""
 
 import sys
 import json
